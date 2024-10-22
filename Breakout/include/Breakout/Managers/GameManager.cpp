@@ -9,7 +9,7 @@ GameManager::GameManager(sf::RenderWindow* window)
 {
     _font.loadFromFile("font/montS.ttf");
     _masterText.setFont(_font);
-    _masterText.setPosition(50, 400);
+    _masterText.setPosition(_window->getSize().x/2, _window->getSize().y/2);
     _masterText.setCharacterSize(48);
     _masterText.setFillColor(sf::Color::Yellow);
 }
@@ -36,12 +36,12 @@ void GameManager::update(float dt)
 
     if (_lives <= 0)
     {
-        _masterText.setString("Game over.");
+        setMasterText("Game Over");
         return;
     }
     if (_levelComplete)
     {
-        _masterText.setString("Level completed.");
+        setMasterText("Level Complete");
         return;
     }
     // pause and pause handling
@@ -51,13 +51,14 @@ void GameManager::update(float dt)
         if (!_pause && _pauseHold <= 0.f)
         {
             _pause = true;
-            _masterText.setString("paused.");
+            setMasterText("Paused");
+            
             _pauseHold = PAUSE_TIME_BUFFER;
         }
         if (_pause && _pauseHold <= 0.f)
         {
             _pause = false;
-            _masterText.setString("");
+            setMasterText("");
             _pauseHold = PAUSE_TIME_BUFFER;
         }
     }
@@ -109,8 +110,27 @@ void GameManager::levelComplete()
     _levelComplete = true;
 }
 
+//this should be done on UI
+void GameManager::setMasterText(std::string message)
+{
+    _masterText.setString(message);
+
+    //If there no message, there is no need to update message position on screen
+    if(message.empty())
+        return;
+
+    auto center = _masterText.getGlobalBounds().getSize()/2.0f;
+    auto localBounds = center + _masterText.getLocalBounds().getPosition();
+    _masterText.setOrigin(localBounds);
+    auto currentViewSize = _window->getView().getSize();
+    _masterText.setPosition(currentViewSize.x/2.0f, currentViewSize.y/2.0f);
+}
+
+
 sf::RenderWindow* GameManager::getWindow() const { return _window; }
 UI* GameManager::getUI() const { return _ui; }
+
+
 Paddle* GameManager::getPaddle() const { return _paddle; }
 BrickManager* GameManager::getBrickManager() const { return _brickManager; }
 PowerupManager* GameManager::getPowerupManager() const { return _powerupManager; }
