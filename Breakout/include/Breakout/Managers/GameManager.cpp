@@ -27,11 +27,6 @@ void GameManager::initialize()
 
 void GameManager::update(float dt)
 {
-    _powerupInEffect = _powerupManager->getPowerupInEffect();
-    _ui->updatePowerupText(_powerupInEffect);
-    _powerupInEffect.second -= dt;
-    
-
     if (_lives <= 0)
     {
         setMasterText("Game Over");
@@ -63,6 +58,9 @@ void GameManager::update(float dt)
     // timer.
     _time += dt;
 
+    _powerupInEffect = _powerupManager->getPowerupInEffect();
+    _ui->updatePowerupText(_powerupInEffect);
+    _powerupInEffect.second -= dt;
 
     if (_time > _timeLastPowerupSpawned + POWERUP_FREQUENCY && rand()%700 == 0)      // TODO parameterise
     {
