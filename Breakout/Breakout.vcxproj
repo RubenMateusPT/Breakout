@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ Make sure that additional includes on each cpp file
+ go from 
+ C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include
+ to 
+ $(ProjectDir)/SFML/include; $(ProjectDir)/include
+ This is an issue with Rider IDE
+-->
+
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -210,7 +220,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\Brick\Brick.cpp">
@@ -285,7 +295,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\Managers\BrickManager.cpp">
@@ -360,7 +370,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\Managers\GameManager.cpp">
@@ -435,7 +445,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\Managers\PowerupManager.cpp">
@@ -510,7 +520,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\Paddle\Paddle.cpp">
@@ -585,7 +595,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\PowerUps\PowerupBase.cpp">
@@ -660,7 +670,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\PowerUps\PowerupBigPaddle.cpp">
@@ -735,7 +745,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\PowerUps\PowerupFastBall.cpp">
@@ -810,7 +820,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\PowerUps\PowerupFireBall.cpp">
@@ -885,7 +895,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\PowerUps\PowerupSlowBall.cpp">
@@ -960,7 +970,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\PowerUps\PowerupSmallPaddle.cpp">
@@ -1035,7 +1045,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\Systems\MessagingSystem.cpp">
@@ -1110,7 +1120,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="include\Breakout\UI\UI.cpp">
@@ -1185,7 +1195,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/SFML/include; C:\Work\Abertay\CMP424 - Professional Development\Week 05\A\Breakout\Breakout\/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="main.cpp">
