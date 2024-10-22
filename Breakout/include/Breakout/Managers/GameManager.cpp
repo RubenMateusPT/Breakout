@@ -1,6 +1,7 @@
 #include "GameManager.h"
 
 #include <iostream>
+#include <cmath>
 
 GameManager::GameManager(sf::RenderWindow* window)
     : _window(window), _paddle(nullptr), _ball(nullptr), _brickManager(nullptr), _powerupManager(nullptr), _ui(nullptr),_pauseKeyReleased(false) ,_pause(false), _time(0.f), _lives(3), _levelComplete(false),
@@ -76,6 +77,8 @@ void GameManager::update(float dt)
     _paddle->update(dt);
     _ball->update(dt);
     _powerupManager->update(dt);
+
+    doScreenShakeEffect(dt);
 }
 
 void GameManager::loseLife()
@@ -83,7 +86,16 @@ void GameManager::loseLife()
     _lives--;
     _ui->lifeLost(_lives);
 
-    // TODO screen shake.
+    // Turn on and Reset Screen Shake Trackers
+    _screenShakeIsActive = true;
+    _currentScreenShakes = 0;
+    //Resets view to center, in case an older shake is being played
+    auto currentView = _window->getView();
+        currentView.setCenter(
+        (_window->getSize().x/2),
+        (_window->getSize().y / 2)
+        );
+    _window->setView(currentView);
 }
 
 void GameManager::render()
@@ -101,7 +113,6 @@ void GameManager::levelComplete()
     _levelComplete = true;
 }
 
-//this should be done on UI
 void GameManager::setMasterText(std::string message)
 {
     _masterText.setString(message);
@@ -115,6 +126,78 @@ void GameManager::setMasterText(std::string message)
     _masterText.setOrigin(localBounds);
     auto currentViewSize = _window->getView().getSize();
     _masterText.setPosition(currentViewSize.x/2.0f, currentViewSize.y/2.0f);
+}
+
+void GameManager::doScreenShakeEffect(float dt)
+{
+    //Check if the effect is active, if not ignore
+    if(!_screenShakeIsActive)
+        return;
+    
+    auto currentView = _window->getView(); //get the current view being displayed
+
+    //When all shakes have been done, we need to recenter our view
+    if(_currentScreenShakes >= MAX_SCREEN_SHAKES)
+    {
+        //Lerps the view to the center of the window
+        auto newXPos =
+            std::lerp(
+                currentView.getCenter().x,
+                _window->getSize().x /2,
+                dt * SCREEN_SHAKE_SPEED
+                );
+        
+        currentView.setCenter(
+            newXPos,
+            (_window->getSize().y / 2)
+            );
+        _window->setView(currentView);
+
+        //When view is close to the center of the view, we finish our shake effect and force the recenter of the window
+        if(std::abs((_window->getSize().x/2) - newXPos) < 2.0f)
+        {
+            currentView.setCenter(
+                (_window->getSize().x/2),
+                (_window->getSize().y / 2)
+                );
+            _window->setView(currentView);
+            _screenShakeIsActive = false;
+        }
+    }
+    // Play the shake effect until it reaches the Maximum shakes
+    else
+    {
+        //Find what direction the view should move based on the current shake
+        auto direction = _currentScreenShakes % 2 ? 1 : -1;
+        //Find the X point we need to move the center to
+        auto destination = (_window->getSize().x /2) + (direction * SCREEN_SHAKE_OFFSET);
+
+        //We use the lerp function to make the movement from where the view is at to the destination smoother
+        auto newXPos =
+            std::lerp(
+                currentView.getCenter().x,
+                destination,
+                dt * SCREEN_SHAKE_SPEED);
+        
+        currentView.setCenter(
+            newXPos,
+            (_window->getSize().y / 2)
+            );
+        
+        _window->setView(currentView);
+
+        //When the view is close to half of the distance needed of the offset, it means we reached the right point and we can go to the next shake
+        //We half the offset so that we can skip the slow smooth of the lerp at the end
+        if(direction < 0 && newXPos < destination + (SCREEN_SHAKE_OFFSET/2))
+        {
+            _currentScreenShakes++;
+        }
+        else if (direction > 0 && newXPos > destination - (SCREEN_SHAKE_OFFSET/2))
+        {
+            _currentScreenShakes++;
+        }
+    }
+    
 }
 
 

@@ -49,4 +49,16 @@ private:
 
     //this should be done on UI
     void setMasterText(std::string message);
+
+    //this should be in a screen effect class
+    //Screen Shake effect
+    static constexpr float SCREEN_SHAKE_OFFSET = 25.0f; // Controls how far the shake/view will go offscreen
+    static constexpr float SCREEN_SHAKE_SPEED = 15; // Controls how fast the view moves to the offset
+    static constexpr int MAX_SCREEN_SHAKES = 5; // Tells how many times the view will move
+    
+    int _currentScreenShakes = 0; // Keeps track on how many shakes were done during start of animation
+    bool _screenShakeIsActive = false; // Flag that tells if the screen shake should be playing
+
+    //play a screen shake effect
+    void doScreenShakeEffect(float dt);
 };
