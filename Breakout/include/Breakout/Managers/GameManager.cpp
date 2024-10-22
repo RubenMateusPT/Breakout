@@ -3,7 +3,7 @@
 #include <iostream>
 
 GameManager::GameManager(sf::RenderWindow* window)
-    : _window(window), _paddle(nullptr), _ball(nullptr), _brickManager(nullptr), _powerupManager(nullptr), _ui(nullptr), _pause(false), _time(0.f), _lives(3), _pauseHold(0.f), _levelComplete(false),
+    : _window(window), _paddle(nullptr), _ball(nullptr), _brickManager(nullptr), _powerupManager(nullptr), _ui(nullptr),_pauseKeyReleased(false) ,_pause(false), _time(0.f), _lives(3), _levelComplete(false),
     _powerupInEffect({ none,0.f }), _timeLastPowerupSpawned(0.f)
 {
     _font.loadFromFile("font/montS.ttf");
@@ -42,28 +42,23 @@ void GameManager::update(float dt)
         setMasterText("Level Complete");
         return;
     }
-    // pause and pause handling
-    if (_pauseHold > 0.f) _pauseHold -= dt;
+    // Pause
+    
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
     {
-        if (!_pause && _pauseHold <= 0.f)
+        if(_pauseKeyReleased)
         {
-            _pause = true;
-            setMasterText("Paused");
-            
-            _pauseHold = PAUSE_TIME_BUFFER;
+            _pause = !_pause;
+            _pause ? setMasterText("Paused") : setMasterText("");
         }
-        if (_pause && _pauseHold <= 0.f)
-        {
-            _pause = false;
-            setMasterText("");
-            _pauseHold = PAUSE_TIME_BUFFER;
-        }
+        
+        _pauseKeyReleased = false;
     }
+    else
+        _pauseKeyReleased = true;
+    
     if (_pause)
-    {
         return;
-    }
 
     // timer.
     _time += dt;
