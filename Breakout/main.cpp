@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "GameManager.h"
+#include "Breakout/Managers/GameManager.h"
 #include <iostream>
 
 int main()

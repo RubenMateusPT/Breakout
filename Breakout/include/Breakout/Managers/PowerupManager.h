@@ -3,14 +3,14 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <optional>
-#include "PowerupBase.h"
-#include "PowerupBigPaddle.h"
-#include "PowerupSmallPaddle.h"
-#include "PowerupSlowBall.h"
-#include "PowerupFastBall.h"
-#include "PowerupFireBall.h"
-#include "Paddle.h"
-#include "Ball.h"
+#include "Breakout/PowerUps/PowerupBase.h"
+#include "Breakout/PowerUps/PowerupBigPaddle.h"
+#include "Breakout/PowerUps/PowerupSmallPaddle.h"
+#include "Breakout/PowerUps/PowerupSlowBall.h"
+#include "Breakout/PowerUps/PowerupFastBall.h"
+#include "Breakout/PowerUps/PowerupFireBall.h"
+#include "Breakout/Paddle/Paddle.h"
+#include "Breakout/Ball/Ball.h"
 
 
 class PowerupManager

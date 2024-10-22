@@ -1,5 +1,5 @@
 #include "Ball.h"
-#include "GameManager.h" // avoid cicular dependencies
+#include "Breakout/Managers/GameManager.h" // avoid cicular dependencies
 
 Ball::Ball(sf::RenderWindow* window, float velocity, GameManager* gameManager)
     : _window(window), _velocity(velocity), _gameManager(gameManager),

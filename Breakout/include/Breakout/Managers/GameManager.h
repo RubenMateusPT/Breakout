@@ -1,13 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "CONSTANTS.h"
-#include "Paddle.h"
-#include "Ball.h"
-#include "BrickManager.h"
+#include "Breakout/CONSTANTS.h"
+#include "Breakout/Paddle/Paddle.h"
+#include "Breakout/Ball/Ball.h"
+#include "Breakout/Managers/BrickManager.h"
 #include "PowerupManager.h"
-#include "MessagingSystem.h"
-#include "UI.h"
-
+#include "Breakout/Systems/MessagingSystem.h"
+#include "Breakout/UI/UI.h"
 
 
 class GameManager {

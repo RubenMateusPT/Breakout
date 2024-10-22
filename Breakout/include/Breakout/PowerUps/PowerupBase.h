@@ -1,9 +1,9 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "CONSTANTS.h"
-#include "Paddle.h"
-#include "Ball.h"
+#include "Breakout/CONSTANTS.h"
+#include "Breakout/Paddle/Paddle.h"
+#include "Breakout/Ball/Ball.h"
 #include <vector>
 
 class PowerupBase

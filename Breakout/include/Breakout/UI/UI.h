@@ -2,8 +2,8 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-#include "CONSTANTS.h"
-#include "PowerupManager.h"
+#include "Breakout/CONSTANTS.h"
+#include "Breakout/Managers/PowerupManager.h"
 
 class GameManager;
 

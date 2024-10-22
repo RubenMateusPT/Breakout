@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PowerupManager.h"
+#include "Breakout/Managers/PowerupManager.h"
 
 class PowerupBigPaddle : public PowerupBase
 {

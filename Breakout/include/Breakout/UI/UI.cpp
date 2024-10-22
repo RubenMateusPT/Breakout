@@ -1,7 +1,7 @@
 #include <sstream>
 
 #include "UI.h"
-#include "GameManager.h"
+#include "Breakout/Managers/GameManager.h"
 #include <iomanip>
 
 UI::UI(sf::RenderWindow* window, int lives, GameManager* gameManager) 

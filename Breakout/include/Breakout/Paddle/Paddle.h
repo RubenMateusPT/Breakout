@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "CONSTANTS.h"
+#include "Breakout/CONSTANTS.h"
 
 class Paddle
 {

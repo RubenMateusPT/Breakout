@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "Brick.h"
+#include "Breakout/Brick/Brick.h"
 #include <SFML/Graphics.hpp>
 
 class GameManager;
