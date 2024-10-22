@@ -61,8 +61,8 @@ void GameManager::update(float dt)
     _powerupInEffect = _powerupManager->getPowerupInEffect();
     _ui->updatePowerupText(_powerupInEffect);
     _powerupInEffect.second -= dt;
-
-    if (_time > _timeLastPowerupSpawned + POWERUP_FREQUENCY && rand()%700 == 0)      // TODO parameterise
+    
+    if (_time > _timeLastPowerupSpawned + POWERUP_FREQUENCY && rand() % POWERUP_MAX_RANDOMIZE_FREQUENCY == 0)
     {
         _powerupManager->spawnPowerup();
         _timeLastPowerupSpawned = _time;

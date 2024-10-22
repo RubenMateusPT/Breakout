@@ -44,7 +44,8 @@ private:
     PowerupManager* _powerupManager;
     UI* _ui;
     
-    static constexpr float POWERUP_FREQUENCY = 7.5f;    // time between minimum powerup spawn
+    constexpr float POWERUP_FREQUENCY = 7.5f;    // time between minimum powerup spawn
+    constexpr int POWERUP_MAX_RANDOMIZE_FREQUENCY = 700; // a random max time for powerup to spawn (based on minumum time
 
     //this should be done on UI
     void setMasterText(std::string message);
