@@ -5,7 +5,6 @@
 #include "Breakout/Ball/Ball.h"
 #include "Breakout/Managers/BrickManager.h"
 #include "Breakout/Managers/PowerupManager.h"
-#include "Breakout/Systems/MessagingSystem.h"
 #include "Breakout/UI/UI.h"
 
 
@@ -43,7 +42,6 @@ private:
     Ball* _ball;
     BrickManager* _brickManager;
     PowerupManager* _powerupManager;
-    MessagingSystem* _messagingSystem;
     UI* _ui;
 
     static constexpr float PAUSE_TIME_BUFFER = 0.5f;
