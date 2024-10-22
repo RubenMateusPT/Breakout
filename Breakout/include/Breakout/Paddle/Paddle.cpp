@@ -1,5 +1,4 @@
 #include "Paddle.h"
-#include <iostream>
 
 Paddle::Paddle(sf::RenderWindow* window)
     : _window(window), _width(PADDLE_WIDTH), _timeInNewSize(0.0f), _isAlive(true)

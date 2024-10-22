@@ -4,11 +4,6 @@
 #include <vector>
 #include <optional>
 #include "Breakout/PowerUps/PowerupBase.h"
-#include "Breakout/PowerUps/PowerupBigPaddle.h"
-#include "Breakout/PowerUps/PowerupSmallPaddle.h"
-#include "Breakout/PowerUps/PowerupSlowBall.h"
-#include "Breakout/PowerUps/PowerupFastBall.h"
-#include "Breakout/PowerUps/PowerupFireBall.h"
 #include "Breakout/Paddle/Paddle.h"
 #include "Breakout/Ball/Ball.h"
 

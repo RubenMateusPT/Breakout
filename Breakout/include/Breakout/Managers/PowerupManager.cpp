@@ -1,5 +1,11 @@
 #include "PowerupManager.h"
 
+#include "Breakout/PowerUps/PowerupBigPaddle.h"
+#include "Breakout/PowerUps/PowerupFastBall.h"
+#include "Breakout/PowerUps/PowerupFireBall.h"
+#include "Breakout/PowerUps/PowerupSlowBall.h"
+#include "Breakout/PowerUps/PowerupSmallPaddle.h"
+
 
 PowerupManager::PowerupManager(sf::RenderWindow* window, Paddle* paddle, Ball* ball)
     : _window(window), _paddle(paddle), _ball(ball)

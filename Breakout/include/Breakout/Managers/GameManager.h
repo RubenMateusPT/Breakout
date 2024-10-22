@@ -4,7 +4,7 @@
 #include "Breakout/Paddle/Paddle.h"
 #include "Breakout/Ball/Ball.h"
 #include "Breakout/Managers/BrickManager.h"
-#include "PowerupManager.h"
+#include "Breakout/Managers/PowerupManager.h"
 #include "Breakout/Systems/MessagingSystem.h"
 #include "Breakout/UI/UI.h"
 
