@@ -31,7 +31,7 @@ void PowerupBase::update(float dt)
 
     // Move the power-up
     _sprite.move(_direction.x * dt, _direction.y * dt);
-
+    
     //// Smooth color changes
     //for (int i = 0; i < _colours.size(); ++i)
     //{
@@ -40,6 +40,13 @@ void PowerupBase::update(float dt)
     //}
     //_sprite.setFillColor(sf::Color(static_cast<sf::Uint8>(_colours[0]), static_cast<sf::Uint8>(_colours[1]), static_cast<sf::Uint8>(_colours[2]), 255));
 
+    if(_sprite.getPosition().y + RADIUS * 2 >= _window->getSize().y - 35)
+    {
+        auto spriteColor = _sprite.getFillColor();
+        spriteColor.a = std::lerp(spriteColor.a, 0, dt / 10);
+        _sprite.setFillColor(spriteColor);
+    }
+    
     // Collide with floor (i.e., was missed)
     if (_sprite.getPosition().y + RADIUS * 2 >= _window->getSize().y)
     {
