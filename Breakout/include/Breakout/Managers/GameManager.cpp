@@ -12,6 +12,14 @@ GameManager::GameManager(sf::RenderWindow* window)
     _masterText.setPosition(_window->getSize().x/2, _window->getSize().y/2);
     _masterText.setCharacterSize(48);
     _masterText.setFillColor(sf::Color::Yellow);
+
+    _audioManager = &AudioManager::getInstance();
+
+    gameMusic = _audioManager->addMusicFile("audio/music/gameloop.mp3");
+    gameOverMusic = _audioManager->addMusicFile("audio/music/gameover.ogg");
+    levelCompleteMusic = _audioManager->addMusicFile("audio/music/levelcomplete.ogg");
+
+    lostBallSFX = _audioManager->addSoundFile("audio/sfx/ballLost.mp3");
 }
 
 void GameManager::initialize()
@@ -24,6 +32,8 @@ void GameManager::initialize()
 
     // Create bricks
     _brickManager->createBricks(5, 10, 80.0f, 30.0f, 5.0f);
+
+    _audioManager->playMusic(gameMusic, true);
 }
 
 void GameManager::update(float dt)
@@ -86,6 +96,16 @@ void GameManager::loseLife()
     _lives--;
     _ui->lifeLost(_lives);
 
+    
+    if(_lives <= 0)
+    {
+        _audioManager->playMusic(gameOverMusic, false);
+    }
+    else
+    {
+        _audioManager->playSound(lostBallSFX);
+    }
+    
     // Turn on and Reset Screen Shake Trackers
     _screenShakeIsActive = true;
     _currentScreenShakes = 0;
@@ -111,6 +131,8 @@ void GameManager::render()
 void GameManager::levelComplete()
 {
     _levelComplete = true;
+
+    _audioManager->playMusic(levelCompleteMusic, false);
 }
 
 void GameManager::setMasterText(std::string message)

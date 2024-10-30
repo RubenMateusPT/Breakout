@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+
+#include "AudioManager.h"
 #include "Breakout/CONSTANTS.h"
 #include "Breakout/Paddle/Paddle.h"
 #include "Breakout/Ball/Ball.h"
@@ -61,4 +63,8 @@ private:
 
     //play a screen shake effect
     void doScreenShakeEffect(float dt);
+
+    AudioManager* _audioManager;
+    int gameMusic, gameOverMusic, levelCompleteMusic;
+    int lostBallSFX;
 };

@@ -3,6 +3,8 @@
 #include "Breakout/Brick/Brick.h"
 #include <SFML/Graphics.hpp>
 
+#include "AudioManager.h"
+
 class GameManager;
 
 class BrickManager {
@@ -18,4 +20,7 @@ private:
 
     GameManager* _gameManager;
     static constexpr float TOP_PADDING = 100.0f;
+
+    AudioManager* _audioManager;
+    int brickExplosionSFX;
 };

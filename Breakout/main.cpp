@@ -1,5 +1,9 @@
 #include <SFML/Graphics.hpp>
+
+#include "Breakout/Managers/AudioManager.h"
 #include "Breakout/Managers/GameManager.h"
+
+AudioManager* AudioManager::_instance = nullptr;
 
 int main()
 {

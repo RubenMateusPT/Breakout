@@ -4,6 +4,9 @@
 BrickManager::BrickManager(sf::RenderWindow* window, GameManager* gameManager)
     : _window(window), _gameManager(gameManager)
 {
+    _audioManager = &AudioManager::getInstance();
+
+    brickExplosionSFX = _audioManager->addSoundFile("audio/sfx/bong.mp3");
 }
 
 void BrickManager::createBricks(int rows, int cols, float brickWidth, float brickHeight, float spacing)
@@ -50,6 +53,8 @@ int BrickManager::checkCollision(sf::CircleShape& ball, sf::Vector2f& direction)
         // In a complete implementation, you would set an _isDestroyed flag or remove it from the vector
         brick = _bricks.back();
         _bricks.pop_back();
+
+        _audioManager->playSound(brickExplosionSFX);
         break;
     }
     if (_bricks.size() == 0)

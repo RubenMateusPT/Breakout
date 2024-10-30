@@ -21,7 +21,7 @@ private:
     std::vector<std::string> musicFiles;
     sf::Music* musicPlayer;
 
-    const int STARTING_SFX_OBJECTS = 5;
+    const int STARTING_SFX_OBJECTS = 0;
     std::vector<sf::SoundBuffer*> sfxFiles;
     std::vector<sf::Sound*> sfxPlayers;
     

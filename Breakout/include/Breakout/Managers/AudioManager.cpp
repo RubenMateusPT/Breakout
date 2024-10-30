@@ -17,6 +17,8 @@ AudioManager::AudioManager()
         {
             sfxPlayers.emplace_back(new sf::Sound());
         }
+
+        std::cout << "Existing SFX Players: " << sfxPlayers.size() << std::endl;
     }
 }
 
@@ -70,8 +72,6 @@ void AudioManager::playMusic(int index, bool loopMusic)
     musicPlayer->play();
 }
 
-
-
 //SFX Controls
 int AudioManager::addSoundFile(std::string fileName)
 {
@@ -111,6 +111,8 @@ void AudioManager::playSound(int index)
     sfxPlayer->setBuffer(*sfxFiles[index]);
     sfxPlayer->setLoop(false);
     sfxPlayer->play();
+
+    std::cout << "Existing SFX Players: " << sfxPlayers.size() << std::endl;
 }
 
 

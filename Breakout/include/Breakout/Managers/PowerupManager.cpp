@@ -10,6 +10,8 @@
 PowerupManager::PowerupManager(sf::RenderWindow* window, Paddle* paddle, Ball* ball)
     : _window(window), _paddle(paddle), _ball(ball)
 {
+    _audioManager = &AudioManager::getInstance();
+    paddleHitSFX = _audioManager->addSoundFile("audio/sfx/coin01.ogg");
 }
 
 PowerupManager::~PowerupManager()
@@ -92,6 +94,8 @@ void PowerupManager::checkCollision()
         {
             _powerupInEffect = powerup->applyEffect();
             powerup->setAlive(false);
+
+            _audioManager->playSound(paddleHitSFX);
         }
     }
 }
