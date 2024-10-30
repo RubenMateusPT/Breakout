@@ -298,6 +298,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)/SFML/include; $(ProjectDir)/include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="include\Breakout\Managers\AudioManager.cpp" />
     <ClCompile Include="include\Breakout\Managers\BrickManager.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -1131,6 +1132,7 @@
     <ClInclude Include="include\Breakout\Ball\Ball.h" />
     <ClInclude Include="include\Breakout\Brick\Brick.h" />
     <ClInclude Include="include\Breakout\CONSTANTS.h" />
+    <ClInclude Include="include\Breakout\Managers\AudioManager.h" />
     <ClInclude Include="include\Breakout\Managers\BrickManager.h" />
     <ClInclude Include="include\Breakout\Managers\GameManager.h" />
     <ClInclude Include="include\Breakout\Managers\PowerupManager.h" />
